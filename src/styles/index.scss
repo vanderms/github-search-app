@@ -86,10 +86,18 @@ ul {
     align-items: center;
     justify-content: space-between;
 
+    @include media(tablet){
+      margin-top: 80px;
+    }
+
+    @include media(laptop){
+      margin-top: 144px;
+    }
+
     .logo {
       font-weight: 700;
       font-size: 26px;
-      line-height: 39px;
+      line-height: 38px;
       color: var(--font-logo);
     }
 
