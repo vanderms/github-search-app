@@ -1,26 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TopBar from './components/top-bar/top-bar';
+import { useState } from 'react';
 
-function App() {
+export default function App() {
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+  function toggleTheme() {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="nv-main" data-theme={theme}>
+      <TopBar handleClick={toggleTheme} />
+    </main>
   );
 }
-
-export default App;

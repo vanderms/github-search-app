@@ -1,0 +1,131 @@
+@use 'sass:map';
+@use 'sass:math';
+
+//media query
+$breakpoints: (
+  mobile: 350px,
+  tablet: 720px,
+  laptop: 1200px,
+  desktop: 1520px,
+);
+
+@mixin media($size) {
+  $breakpoint: map.get($breakpoints, $size);
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: Min(87.2%, 730px);
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: 'Space Mono', monospace;
+}
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+:root {
+  --blue: #0079ff;
+  --red: #f74646;
+}
+
+[data-theme='light'] {
+  --background-primary: #f6f8ff;
+  --background-card: #fefefe;
+  --font-logo: #222731;
+  --font-strong: #2b3442;
+  --font-light: #4b6a9b;
+  --font-lighter: #697c9a;
+  --color-icon-hover: #222731;
+  --theme-opposite: 'dark';
+  --toggle-icon: url(/assets/icon-moon.svg);
+}
+
+[data-theme='dark'] {
+  --background-primary: #141d2f;
+  --background-card: #1e2a47;
+  --font-logo: #ffffff;
+  --font-strong: #ffffff;
+  --font-light: #ffffff;
+  --font-lighter: #ffffff;
+  --color-icon-hover: #90a4d4;
+  --theme-opposite: 'light';
+  --toggle-icon: url(/assets/icon-sun.svg);
+}
+
+.nv-main {
+  background-color: var(--background-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .top-bar {
+    margin-top: 31px;
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 39px;
+      color: var(--font-logo);
+    }
+
+    .toggle-theme {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .toggle-theme::before {
+      content: var(--theme-opposite);
+      color: var(--font-light);
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+    }
+
+    .toggle-theme:hover::before {
+      color: var(--color-icon-hover);
+    }
+
+    .toggle-theme::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background-color: var(--font-light);
+      mask-image: var(--toggle-icon);
+      mask-repeat: no-repeat;
+    }
+
+    .toggle-theme:hover::after {
+      background-color: var(--color-icon-hover);
+    }
+  }
+}
