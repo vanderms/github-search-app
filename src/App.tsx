@@ -1,4 +1,5 @@
 import TopBar from './components/top-bar/top-bar';
+import SearchBar from './components/search-bar/search-bar';
 import { useState } from 'react';
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
   return (
     <main className="nv-main" data-theme={theme}>
       <TopBar handleClick={toggleTheme} />
+      <SearchBar />
     </main>
   );
 }
