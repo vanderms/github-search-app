@@ -1,6 +1,6 @@
 # Frontend Mentor - Github Search App
 
-![Design preview for the Github Search App coding challenge](./preview.jpg)
+![Design preview for the Github Search App coding challenge](./public/preview.jpg)
 
 ### Built with
 
