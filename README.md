@@ -11,5 +11,5 @@
 
 ### Links
 
-- Solution URL: 
-- Live Site URL: 
+- Solution URL:
+- Live Site URL:
