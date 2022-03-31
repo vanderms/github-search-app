@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import { Octocat, fetchUser, FetchError } from '../../lib/user';
 import type { GithubUser } from '../../lib/user';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import defaultAvatarURL from '../../assets/default_avatar.png';
 
 function parseDate(dt: Date): string[] {
@@ -11,16 +11,25 @@ function parseDate(dt: Date): string[] {
   return [datetimeStr, joinedAt];
 }
 
-export default function CardUser({ username }: { username: string }) {
+interface Props {
+  username: string;
+  hasFound: (found: boolean) => void;
+}
+
+export default function CardUser({ username, hasFound }: Props) {
   const [user, setUser] = useState<GithubUser>(Octocat);
 
   const { data } = useQuery(['Github', username], () => fetchUser(username));
 
-  if (data === undefined) {
-    /* do nothing */
-  } else if (data === FetchError.NOT_FOUND) {
-    console.log('Not found');
-  } else if (data.login !== user.login) {
+  useEffect(() => {
+    hasFound(data !== FetchError.NOT_FOUND);
+  }, [data, hasFound]);
+
+  if (
+    data !== undefined &&
+    data !== FetchError.NOT_FOUND &&
+    data.login !== user.login
+  ) {
     setUser(data);
   }
 

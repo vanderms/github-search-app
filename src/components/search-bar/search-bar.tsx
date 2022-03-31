@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
 interface Props {
-  handleSubmit: (user: string) => void;
+  found: boolean;
+  handleSubmit: (user: string) => void; 
 }
 
-export default function SearchBar({ handleSubmit }: Props) {
+export default function SearchBar({ found, handleSubmit }: Props) {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   return (
@@ -26,6 +27,7 @@ export default function SearchBar({ handleSubmit }: Props) {
       <label className="label" htmlFor="search-input">
         Search GitHub username…
       </label>
+      { !found && <p className="not-found">no results</p> }
       <input className="btn" type="submit" value="Search" />
     </form>
   );
