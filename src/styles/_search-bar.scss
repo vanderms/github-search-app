@@ -18,7 +18,7 @@
     background-size: contain;
     background-position: center;
 
-    @include media(tablet){
+    @include media(tablet) {
       width: 24px;
       height: 24px;
       top: 23px;
@@ -37,7 +37,7 @@
 
     @include media(tablet) {
       height: 69px;
-      padding-right: 0 ;
+      padding-right: 0;
     }
   }
 
@@ -54,10 +54,10 @@
     overflow: hidden;
     font-size: 10px;
     @include media(mobile) {
-      font-size: 13px;      
+      font-size: 13px;
     }
 
-    @include media(tablet){
+    @include media(tablet) {
       font-size: 18px;
       line-height: 69px;
       left: 80px;
@@ -83,11 +83,11 @@
     cursor: pointer;
     z-index: 2;
 
-    &:hover{
-      background-color: #60ABFF;
+    &:hover {
+      background-color: #60abff;
     }
 
-    @include media(tablet){
+    @include media(tablet) {
       width: 106px;
       height: 50px;
       top: 9.5px;
@@ -96,11 +96,11 @@
   }
 
   .not-found {
-    top: -20px;  
+    top: -20px;
     font-weight: 700;
     font-size: 14px;
     line-height: 14px;
-    text-align: right;  
+    text-align: right;
     color: #f74646;
     position: absolute;
     right: 7px;
