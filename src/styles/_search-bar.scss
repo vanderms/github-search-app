@@ -15,7 +15,7 @@
     height: 20px;
     background-image: url(/assets/icon-search.svg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
 
     @include media(tablet){

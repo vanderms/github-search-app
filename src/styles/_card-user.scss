@@ -2,4 +2,130 @@
 
 .nv-card-user {
   margin-top: 16px;
+  @include container;
+  padding: 32px 24px 48px;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  column-gap: 19.5px;
+  box-shadow: var(--box-shadow);
+  border-radius: 15px;
+  background-color: var(--background-card);
+
+  .avatar {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    grid-row: 1 / span 3;
+  }
+
+  .name {
+    margin-top: 1px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--font-strong);
+  }
+
+  .login {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 19px;
+    color: var(--blue);
+  }
+
+  .joined {
+    margin-top: 6px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 19px;
+    color: var(--font-lighter);
+  }
+
+  .joined ~ * {
+    grid-column: 1 / span 2;
+  }
+
+  .bio {
+    margin-top: 33px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 25px;
+    color: var(--font-light);
+  }
+
+  .indicators {
+    margin-top: 23px;
+    background: var(--background-primary);
+    border-radius: 10px;
+    padding: 18.5px 14.5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 8px;
+
+    .description {
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 16px;
+      text-align: center;
+      color: var(--font-light);
+    }
+
+    .value {
+      order: 1;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: var(--font-strong);
+    }
+  }
+
+  .contact {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+
+    & > * {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--font-light);
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 19px;
+
+      &[data-available='false'] {
+        opacity: 0.5;
+      }
+
+      &::before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: left center;
+        background-color: var(--font-light);
+      }
+    }
+
+    .location::before {
+      mask-image: url(../assets/icon-location.svg);
+    }
+
+    .twitter::before {
+      mask-image: url(../assets/icon-twitter.svg);
+    }
+
+    .blog::before {
+      mask-image: url(../assets/icon-website.svg);
+    }
+
+    .company::before {
+      mask-image: url(../assets/icon-company.svg);
+    }
+  }
 }

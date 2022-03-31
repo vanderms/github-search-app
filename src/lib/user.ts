@@ -15,16 +15,17 @@ export interface GithubUser {
   company: string;
 }
 
-export enum FetchError {
+export enum Constants {
   NOT_FOUND = 'NOT_FOUND',
+  NOT_AVAILABLE = 'Not Available'
 }
 
 export const Octocat: GithubUser = {
   avatar: 'https://avatars.githubusercontent.com/u/583231?v=4',
   name: 'The Octocat',
-  login: 'octocat',
+  login: '@octocat',
   created: new Date('2011-01-25T18:44:36Z'),
-  bio: 'This profile has no bio',
+  bio: 'This profile has no bio.',
   repos: 8,
   followers: 5371,
   following: 9,
@@ -36,31 +37,31 @@ export const Octocat: GithubUser = {
 
 export async function fetchUser(
   login: string
-): Promise<GithubUser | FetchError> {
+): Promise<GithubUser | Constants.NOT_FOUND> {
   const data = await axios
     .get(`https://api.github.com/users/${login}`)
     .then((response) => response.data)
     .catch(() => null);
 
   if (data === null) {
-    return FetchError.NOT_FOUND;
+    return Constants.NOT_FOUND;
   }
 
-  const NotAvailable = 'Not Available';
+  
 
   const user: GithubUser = {
     avatar: data.avatar_url ?? '',
     name: data.name ?? '',
-    login: data.login,
+    login: "@" + data.login,
     created: new Date(data.created_at),
-    bio: data.bio ?? 'This profile has no bio',
+    bio: data.bio ?? 'This profile has no bio.',
     repos: data.public_repos,
     followers: data.followers,
     following: data.following,
-    location: data.location ?? NotAvailable,
-    blog: data.blog ?? NotAvailable,
-    twitter: data.twitter_username ?? NotAvailable,
-    company: data.company ?? NotAvailable,
+    location: data.location ?? Constants.NOT_AVAILABLE,
+    blog: data.blog ?? Constants.NOT_AVAILABLE,
+    twitter: data.twitter_username ?? Constants.NOT_AVAILABLE,
+    company: data.company ?? Constants.NOT_AVAILABLE,
   };
 
   return user;
