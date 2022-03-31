@@ -37,7 +37,11 @@
 
     @include media(tablet) {
       height: 69px;
-      padding-right: 0;
+      padding: 0 126px 0 80px;
+    }
+
+    @include media(laptop) {
+      padding: 0 242px 0 80px;
     }
   }
 
@@ -104,5 +108,12 @@
     color: #f74646;
     position: absolute;
     right: 7px;
+
+    @include media(laptop) {
+      font-size: 15px;
+      line-height: 22px;
+      right: 140px;
+      top: 24px;
+    }
   }
 }

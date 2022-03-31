@@ -16,6 +16,12 @@
     grid-template-columns: 117px 1fr;
     column-gap: 41px;
     padding: 40px;
+    position: relative;
+  }
+
+  @include media(laptop) {
+    padding: 48px;
+    column-gap: 37px;
   }
 
   .avatar {
@@ -44,6 +50,10 @@
       font-size: 26px;
       line-height: 39px;
     }
+
+    @include media(laptop) {
+      margin-top: -4px;
+    }
   }
 
   .login {
@@ -71,10 +81,20 @@
       font-size: 15px;
       line-height: 22px;
     }
+
+    @include media(laptop) {
+      position: absolute;
+      top: 52px;
+      right: 48px;
+    }
   }
 
   .joined ~ * {
     grid-column: 1 / span 2;
+
+    @include media(laptop) {
+      grid-column: 2 / span 1;
+    }
   }
 
   .bio {
@@ -87,6 +107,10 @@
     @include media(tablet) {
       margin-top: 24px;
       font-size: 15px;
+    }
+
+    @include media(laptop) {
+      margin-top: 20px;
     }
   }
 
@@ -145,6 +169,10 @@
       margin-top: 30px;
       grid-template-columns: 1fr 1fr;
       row-gap: 19px;
+    }
+
+    @include media(laptop){
+      margin-top: 37px;
     }
 
     & > * {
