@@ -36,6 +36,10 @@
       width: 117px;
       height: 117px;
     }
+
+    @include media(laptop){
+      grid-row: 1 / span 4;
+    }
   }
 
   .name {
@@ -86,6 +90,7 @@
       position: absolute;
       top: 52px;
       right: 48px;
+      margin-top: 0;
     }
   }
 
