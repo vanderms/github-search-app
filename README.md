@@ -11,5 +11,5 @@
 
 ### Links
 
-- Solution URL:
-- Live Site URL:
+- Solution URL: <https://www.frontendmentor.io/solutions/react-react-query-typescript-scss-H1yx_5XX9>
+- Live Site URL: <https://admirable-wisp-792612.netlify.app/>
