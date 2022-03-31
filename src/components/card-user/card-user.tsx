@@ -36,7 +36,7 @@ export default function CardUser({ username, hasFound }: Props) {
   const [datetimeStr, joinedAt] = parseDate(user.created);
 
   return (
-    <article className="card-user">
+    <article className="nv-card-user">
       <div className="image-container">
         <img
           src={user.avatar ? user.avatar : defaultAvatarURL}

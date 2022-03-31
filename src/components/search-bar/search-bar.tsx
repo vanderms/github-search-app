@@ -10,12 +10,13 @@ export default function SearchBar({ found, handleSubmit }: Props) {
 
   return (
     <form
-      className="search-bar"
+      className="nv-search-bar"
       onSubmit={(e) => {
         e.preventDefault();
         handleSubmit(searchTerm);
       }}
     >
+      { !found && <p className="not-found">no results</p> }
       <input
         type="text"
         id="search-input"
@@ -27,7 +28,7 @@ export default function SearchBar({ found, handleSubmit }: Props) {
       <label className="label" htmlFor="search-input">
         Search GitHub username…
       </label>
-      { !found && <p className="not-found">no results</p> }
+      
       <input className="btn" type="submit" value="Search" />
     </form>
   );

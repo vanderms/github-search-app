@@ -1,0 +1,30 @@
+@use './mixins' as *;
+
+:root {
+  --blue: #0079ff;
+  --red: #f74646;
+}
+
+[data-theme='light'] {
+  --background-primary: #f6f8ff;
+  --background-card: #fefefe;
+  --font-logo: #222731;
+  --font-strong: #2b3442;
+  --font-light: #4b6a9b;
+  --font-lighter: #697c9a;
+  --color-icon-hover: #222731;
+  --theme-opposite: 'dark';
+  --toggle-icon: url(/assets/icon-moon.svg);
+}
+
+[data-theme='dark'] {
+  --background-primary: #141d2f;
+  --background-card: #1e2a47;
+  --font-logo: #ffffff;
+  --font-strong: #ffffff;
+  --font-light: #ffffff;
+  --font-lighter: #ffffff;
+  --color-icon-hover: #90a4d4;
+  --theme-opposite: 'light';
+  --toggle-icon: url(/assets/icon-sun.svg);
+}

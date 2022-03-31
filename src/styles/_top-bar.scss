@@ -1,0 +1,59 @@
+@use './mixins' as *;
+
+.nv-top-bar {
+  margin-top: 31px;
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include media(tablet) {
+    margin-top: 80px;
+  }
+
+  @include media(laptop) {
+    margin-top: 144px;
+  }
+
+  .logo {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 38px;
+    color: var(--font-logo);
+  }
+
+  .toggle-theme {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .toggle-theme::before {
+    content: var(--theme-opposite);
+    color: var(--font-light);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2.5px;
+  }
+
+  .toggle-theme:hover::before {
+    color: var(--color-icon-hover);
+  }
+
+  .toggle-theme::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: var(--font-light);
+    mask-image: var(--toggle-icon);
+    mask-repeat: no-repeat;
+  }
+
+  .toggle-theme:hover::after {
+    background-color: var(--color-icon-hover);
+  }
+}

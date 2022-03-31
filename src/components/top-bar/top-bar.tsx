@@ -4,7 +4,7 @@ interface Props {
 
 export default function TopBar({ handleClick }: Props) {
   return (
-    <header className="top-bar">
+    <header className="nv-top-bar">
       <h1 className="logo">devfinder</h1>
       <button
         onClick={() => handleClick()}
