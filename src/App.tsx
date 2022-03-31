@@ -19,7 +19,7 @@ export default function App() {
       <main className="nv-main" data-theme={theme}>
         <TopBar handleClick={toggleTheme} />
         <SearchBar handleSubmit={(user: string) => setUsername(user)} />
-        <CardUser username={username}/>
+        <CardUser username={username} />
       </main>
     </QueryClientProvider>
   );
