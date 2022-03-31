@@ -6,9 +6,9 @@ import defaultAvatarURL from '../../assets/default_avatar.png';
 
 function parseDate(dt: Date): string[] {
   let year = dt.getFullYear().toString();
-  let month = ("0" + dt.getMonth() + 1).slice(-2);
+  let month = ('0' + dt.getMonth() + 1).slice(-2);
   let day = dt.getDate().toString();
-  const datetimeStr = [year, month, day].join('-');  
+  const datetimeStr = [year, month, day].join('-');
   let joinedAt: string | string[] = dt.toDateString().slice(4).split(' ');
   joinedAt = [joinedAt[1], joinedAt[0], joinedAt[2]].join(' ');
   return [datetimeStr, joinedAt];
@@ -70,6 +70,8 @@ export default function CardUser({ username, hasFound }: Props) {
           className="blog"
           href={user.blog !== Constants.NOT_AVAILABLE ? user.blog : ''}
           data-available={user.blog !== Constants.NOT_AVAILABLE}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {user.blog}
         </a>
